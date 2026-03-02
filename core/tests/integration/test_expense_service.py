@@ -100,6 +100,7 @@ def test_create_multiple_expenses_and_list():
     assert expense_list[1].title == "Leche"
     assert len(expense_list) == 2
 
+
 def test_remove_expense_reduces_total():
     """
     Evalúa el comportamiento del sistema al eliminar un gasto existente:
@@ -122,6 +123,7 @@ def test_remove_expense_reduces_total():
 
     assert service.total_amount() == 22
     assert len(service.list_expenses()) == 1
+
 
 def test_update_expense_partial_fields():
     """
@@ -157,7 +159,7 @@ def test_total_amount_after_removal():
     - Se recalcula el total y se espera que sea 25, reflejando únicamente el monto del gasto aún presente.
     - Este test valida que el método total_amount refleja los cambios en el sistema ante eliminaciones, manteniendo la consistencia de los datos agregados.
     """
-    
+
     service = create_service()
 
     service.create_expense("Cursos", 30)
@@ -168,4 +170,3 @@ def test_total_amount_after_removal():
     service.remove_expense(1)
 
     assert service.total_amount() == 25
-
